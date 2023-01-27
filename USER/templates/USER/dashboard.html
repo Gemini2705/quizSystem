@@ -1,0 +1,39 @@
+{% extends "USER/base.html" %}
+{% block content %}
+	<h1>Welcome to Dashboard!</h1>
+	<div class='container'>
+		<h2>Available Quizzes</h2>
+		<div class="content-section">
+			<h2>Select The Quiz</h2>
+			<div class="quiz-menu">
+			<table class="table">
+				<tr>
+					<th>Sr. No.</th>
+					<th>Quiz Name</th>
+					<th>Total Marks</th>
+				</tr>
+				{% for quizs in quiz %}
+				<tr>
+					<td> {{quizs.srno}}</td>
+					<td> <a href="quiz/{{quizs.quizName}}">{{quizs.quizName}}</a></td>
+					<td> {{quizs.totalMarks}}</td>
+				</tr>
+				{% endfor %}
+			</table>
+		    </div>
+		</div>
+	</div>
+
+	<div class="col-md-4">
+	    <div class="content-section">
+	        <h3>Leader Board</h3>
+	        <p class='text-muted'>Top scorer in all quizzes would be displayed here
+	          <ul class="list-group">
+	          	{% for results in result %}
+	            <li class="list-group-item list-group-item-light"> {{results.username}} - {{results.total}}</li>
+	            {% endfor %}
+	          </ul>
+	        </p>
+	    </div>
+	</div>
+{% endblock content %}

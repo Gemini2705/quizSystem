@@ -1,0 +1,51 @@
+{% extends "USER/base.html" %}
+{% block content %}
+	<div class="content-section">
+		<form method="POST">
+			{% csrf_token %}
+			<fieldset class="form-group">
+				<legend class="border-bottom mb-4">
+					Add Question
+				</legend>
+				<div>
+					<label for="qno">Enter Question No.</label>
+					<input type="number" name="qno" min="1" max="25" >
+
+					<label for="question">Enter Question</label>
+					<input type="text" name="question" >
+
+					<label for="inQuiz">Enter Quiz Name You Want Ur Question To Be Part Of (You Can Add Into Existing Quizes Too)</label>
+					<input type="text" name="inQuiz" >
+
+					<label >Enter question Type</label>
+					<input type="radio" name="qtype" value='MCQ' id=rad1>
+					<label for="rad1">MCQ</label>
+
+					<input type="radio" name="qtype" value='TrueFalse' id=rad2>
+					<label for="rad2">TrueFalse</label>
+
+					<input type="radio" name="qtype" value='Multiple' id=rad1>
+					<label for="rad1">Multiple</label>
+
+					<label for="opt1">Option 1 (Enter 'True' if TrueFalse Question)</label>
+					<input type="text" name="opt1">
+
+					<label for="opt3">Option 1 (Enter 'False' if TrueFalse Question)</label>
+					<input type="text" name="opt2">
+
+					<label for="opt3">Option 1 (Enter 'Null' if TrueFalse Question)</label>
+					<input type="text" name="opt3">
+
+					<label for="anskey">Enter Ans</label>
+					<input type="text" name="anskey">
+
+
+				</div>
+			</fieldset>
+			<div class="form-group">
+				<button class="btn btn-outline-info" type="submit"> Add Question</button>			
+			</div>
+		</form>
+		
+	</div>
+{% endblock content %}
